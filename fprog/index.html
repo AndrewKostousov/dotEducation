@@ -1,0 +1,709 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://andrewkostousov.github.io/dotEducation/fprog/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.5">
+    
+    
+      
+        <title>Functional Programming - dotEducation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a617204b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9204c3b2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="dotEducation" class="md-header__button md-logo" aria-label="dotEducation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            dotEducation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Functional Programming
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/skbkontur/dotEducation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="dotEducation" class="md-nav__button md-logo" aria-label="dotEducation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    dotEducation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/skbkontur/dotEducation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beginners/" class="md-nav__link">
+        For Beginners
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          C#
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C#" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C#
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csharp/" class="md-nav__link">
+        Что нужно знать про язык в .NET?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csharp/cil_jit/" class="md-nav__link">
+        CIL и JIT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csharp/async/" class="md-nav__link">
+        Асинхронность в .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csharp/metaprogramming/" class="md-nav__link">
+        Метапрограммирование
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csharp/linq/" class="md-nav__link">
+        Expression Trees, Query Providers, LINQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csharp/memory_model/" class="md-nav__link">
+        .NET Memory Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Functional Programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Functional Programming
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Базовая информация о функциональном программировании
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    Функциональное программирование в C
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Дизайн кода в функциональном стиле
+  </a>
+  
+    <nav class="md-nav" aria-label="Дизайн кода в функциональном стиле">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Доклады, статьи и книга Скотта Влащина
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Что еще изучать?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Теоретические основы функционального программирования
+  </a>
+  
+    <nav class="md-nav" aria-label="Теоретические основы функционального программирования">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Монады
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Базовая информация о функциональном программировании
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    Функциональное программирование в C
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Дизайн кода в функциональном стиле
+  </a>
+  
+    <nav class="md-nav" aria-label="Дизайн кода в функциональном стиле">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Доклады, статьи и книга Скотта Влащина
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Что еще изучать?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Теоретические основы функционального программирования
+  </a>
+  
+    <nav class="md-nav" aria-label="Теоретические основы функционального программирования">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Монады
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="_1">Функциональное программирование<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Функциональное программирование — одна из основных парадигм программирования и сегодня ее знание нужно все чаще. Основанные на ФП инструменты встречаются в .NET и сторонних библиотеках, многие идеи в современной разработке так или иначе связаны с функциональным подходом, а в проектах все чаще встречается что-то относящееся к ФП. На этой странице вы найдете разнообразную информацию, посвященную изучению функционального программирования. </p>
+<p>А еще на YouTube доступна <a href="https://youtu.be/OPgijKNKmsU">запись нашего митапа</a>, на котором Вагиф Абилов рассказывал, в чем польза изучения F# и функционального программирования.</p>
+<ul>
+<li><a href="#%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F-%D0%BE-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8">Базовая информация о функциональном программировании</a></li>
+<li><a href="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B2-c">Функциональное программирование в C#</a></li>
+<li><a href="#%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%BA%D0%BE%D0%B4%D0%B0-%D0%B2-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC-%D1%81%D1%82%D0%B8%D0%BB%D0%B5">Дизайн кода в функциональном стиле</a></li>
+<li><a href="#%D1%82%D0%B5%D0%BE%D1%80%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Теоретические основы функционального программирования</a></li>
+</ul>
+<h2 id="_2">Базовая информация о функциональном программировании<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Здесь материалы об основных особенностях и концепциях функционального програмирования. Что оно дает? А в чем недостатки и сложности? На чем все это основывается, за счет чего работает?</p>
+<p>В этой части будет много материалов, рассказывающих об одном и том же — выбирайте наиболее подходящий вам по примерам и подаче.</p>
+<p><strong><a href="https://habr.com/ru/post/479238/">Статья на Хабре "Функциональное программирование — это не то, что нам рассказывают"</a></strong></p>
+<p>Хорошее базовое введение в ФП со стороны практики. Минимум общей теории и абстрактных понятий, много практических демонстраций. Хорошо объясняет, зачем ФП нужно в разработке и за счет чего эта польза обеспечивается.</p>
+<p>В то же время, более сложных концептов в этой статье разобрано не будет, только самые базовые.</p>
+<p><strong><a href="https://docs.microsoft.com/ru-ru/dotnet/fsharp/tutorials/functional-programming-concepts">Статья в документации Microsoft "Введение в концепции ФП на F#"</a></strong></p>
+<p>Очень простая статья, показывающая основные концепции ФП на примерах из F#. В отличие от прошлой, здесь нет какого-то разбора практической применимости этих концепций, но зато все показано на примерах из F# и хорошо объяснено. Помогает понять принципы неизменяемости, чистоты функций и ссылочной прозрачности.</p>
+<p><strong><a href="https://youtu.be/3q4ov8168H4">"Введение в функцональное программирование" от Ильи Фофанова</a></strong></p>
+<p>Видео из небольшого курса на YouTube о функциональном программировании. Во многом рассказывает о мотивации изучать ФП, показывает его актуальность, применение в C#, основные приниципы и прочее. Все максимально понятно, емко и хорошо подано.</p>
+<p><strong><a href="https://youtu.be/mmvHC3UgYmg">Доклад "Не морочьте мне голову со своим функциональным программированием" Виталия Брагилевского</a></strong></p>
+<p>Отличная демонстрация не только основных приницпов ФП, но и того, как они уже применяются во вроде бы не-функциональных языках программирования. Поясняет, откуда растут ноги у функционального подхода, какие проблемы он решает, как влияет на производительность и так далее. Выступление никак не относится к .NET, но будет понятно вне зависимости от языка, на котором вы пишете.</p>
+<p><strong><a href="https://fsharpforfunandprofit.com/series/thinking-functionally/">Серия статей "Thinking functionally" от Скотта Влащина</a></strong></p>
+<p>Серия статей от автора сайта <a href="https://fsharpforfunandprofit.com/">F# for Fun and Profit</a> и одного из главных популяризаторов F# и ФП Скотта Влащина. Очень конкретно и подробно раскрывает тему, дает много хороших примеров на F#, в деталях объясняет самые-самые базовые вещи. Для кого-то материал может оказаться даже слишком подробным, но в любом случае — это отличный вариант вникнуть в тему для новичка.</p>
+<h2 id="c">Функциональное программирование в C<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<p>Материалы о том, как идеи из функционального мира могут применятся в C# разработке. Часть из них включает в себя и объяснение основ ФП — его можно пропустить, если с ними вы уже разобрались.</p>
+<p><strong><a href="https://habr.com/ru/post/266873/">Серия статей Владимира Хорикова "Functional C#"</a></strong></p>
+<p>Рассказывает о том, как (и зачем) реализовывать многие фундаментальные вещи в функциональном стиле. Иммутабельность, работа с данными, работа с ошибками и прочее. Статьи были написаны еще в 2015 году, но с каждым годом становятся все актуальнее (а в C# появляется все больше удобных инструментов для работы в таком стиле). </p>
+<p><strong><a href="https://youtu.be/9s_4wpzENhg">Роман Неволин — Почему ваша архитектура функциональная и как с этим жить</a></strong></p>
+<p>Доклад с DotNext о том, какие концепции из функционального программирования встречаются в любом энтерпрайзном приложении и как их применять с наибольшей пользой для себя. Нацелен на применение функциональных принципов к повседневным задачам.</p>
+<p><strong><a href="https://dev.to/shimmer/functional-programming-in-c-3h6e">Серия статей "Functional programming in C#"</a></strong></p>
+<p>Еще одна демонстрация тех же приниципов, двигающаяся от простого к сложному. Из плюсов — много интересных идей и хороший разбор. Из минусов — в отличие от прошлых, этот материал на английском.</p>
+<h2 id="_3">Дизайн кода в функциональном стиле<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Материалы о применении функционального программирования в каждодневной разработке. Какие его свойства могут быть особенно полезны в больших проектах с высокими требованиями к надежности? Или в проектах со сложной бизнес-логикой? Или при высоких требованиях к стабильности кода? И вообще, как организовывать код с использованием функционального подхода?</p>
+<h3 id="_4">Доклады, статьи и книга Скотта Влащина<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Скотт Влащин — один из главных популяризаторов функционального программирования, так что его материалы достойны отдельной категории. Он много рассказывает о функциональном дизайне приложений — принципах организации кода, основанных на концепциях ФП. Его доклады в основном нацелены на новичков, которые прежде не погружались в тему функционального дизайна.</p>
+<p><strong><a href="https://youtu.be/srQt1NAHYC0">Доклад "Functional Design Patterns"</a></strong></p>
+<p>Один из самых известных докладов по этой теме, бесконечно вспоминаемый и цитируемый. Рассказывает о простых принципах организации кода в функциональном программировании, которые подменяют аналогичные в ООП. Здесь рассказывается о композиции функций, организации из в пайплайн, обработке ошибок, всяческой удобной организации логики приложений и, конечно, монадах. Максимально практичный и доступный доклад для тех, кто не нырял глубоко в тему.</p>
+<p><strong><a href="https://youtu.be/oquuPOkz8xo">Доклад "The power of composition"</a></strong></p>
+<p>В этом докладе Скотт фокусируется на композиции — от самого простого соединения двух функций до композиции высокоуровневых блоков приложения. Простой, понятный, и в то же время полный доклад, заканчивающийся примером веб-приложения на этих же принципах.</p>
+<p><strong><a href="https://youtu.be/2JB1_e5wZmU">Доклад "Domain Modeling Made Functional"</a></strong></p>
+<p>Доклад о том, почему именно функциональная система типов и способ организации логики отлично подходят для DDD (и разнообразных бизнес-приложений в целом). Этот доклад во многом именно про систему типов и то, как она позволяет сделать код максимально надежным и очевидным.</p>
+<p><strong><a href="https://youtu.be/RqlnWv6NZos">Доклад "Designing with capabilities"</a></strong></p>
+<p>Здесь Скотт рассказывает о дизайне кода, в котором неправильное состояние становится невозможным, а вероятность ошибки радикально снижается. По сути, описываемые концепции преследуют те же цели, что и SOLID — создание модульного, надежного и понятного кода. <a href="https://fsharpforfunandprofit.com/cap/">На сайте F# for Fun and Profit</a> можно также найти относящиеся к этой теме статьи и примеры.</p>
+<p><strong><a href="https://www.amazon.com/Domain-Modeling-Made-Functional-Domain-Driven/dp/1680502549">Книга "Domain Modeling Made Functional"</a></strong></p>
+<p>Книга, суммирующая все описанное выше и добавляющая к этому еще много важных важных кирпичиков. В ней разъясняются многие нюансы работы с типами и доменом, рассказывается о том, как в функциональном стиле взаимодействовать с базой данных и так далее.</p>
+<p>Иначе говоря, эта книга дает ответ на вопрос "как в функциональном стиле создавать полноценные приложения?", объясняя все детали и нюансы (на которые в докладах не хватает времени).</p>
+<h3 id="_5">Что еще изучать?<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong><a href="https://youtu.be/US8QG9I1XW0">"Functional architecture  The pits of success" — Mark Seemann</a></strong></p>
+<p>Доклад о best practices в мире функциональной разработки. Всегда актуален и касается многих вечных проблем — работы с "грязными" функциями (вроде чтения-записи из БД), валидации, тестируемости, работы с моделями и так далее. </p>
+<p><strong><a href="https://youtu.be/v9QGWbGppis">"Functional Programming Patterns for Mere Mortals" — Daniel Chambers</a></strong></p>
+<p>Здесь объясняется, зачем функторы, аппликаторы, монады и прочие страшно звучащие конструкции нужны в реальном коде — какие преимущества они несут, как используются и как выглядит код без их использования. Никакого предварительного понимания этих понятий доклад не требует и очень хорошо поясняет их сразу в практическом контексте.</p>
+<h2 id="_6">Теоретические основы функционального программирования<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Здесь будут как большие курсы, рассказывающие теоретические основы и подоплеку функционального подхода, так и материалы, посвященные конкретным темам. Этот раздел намеренно помещен в конце — если начинать изучать ФП сразу с теории, то она может показаться неоправданно сложной. Однако если вы уже заинтересовались темой и хотите использовать ФП в каждодневной разработке, теория вам явно пригодится.</p>
+<p>Многие материалы в этом блоке будут так или иначе связаны с Haskell.</p>
+<p><strong><a href="https://stepik.org/course/75/syllabus">Курс на Stepic "Функциональное программирование на языке Haskell"</a></strong></p>
+<p>Вероятно, самый известный курс об основах функционального программирования на русском языке. Рассказывает о системе типов Haskell (традиционной для функциональных языков), работе со списками (которая традиционно имеет очень большое значение в ФП) и, разумеется, монадах. </p>
+<p>Этот курс полезен для получения основ. Из преимуществ — опытный лектор, отличная подача и много практических задач. Из недостатков — иногда объяснений в лекциях не хватает для решения задач, а ряд тем недостаточно раскрыт.</p>
+<p><strong><a href="https://ulearn.me/Course/fpintroduction">Курс на Ulearn "Введение в функциональное программирование"</a></strong></p>
+<p>Аналогичный курс — также на Haskell, также посвящен основам ФП. Он несколько больше по объему материала, покрывает большее количество тем (например, здесь детально разобрано лямбда-исчисление, трансформеры и некоторые практические темы вроде тестирования в Haskell). </p>
+<p>Из преимуществ курса, помимо объема материала, можно назвать большее количество практических задач. Они большие, близкие к реальному коду и достаточно интересные для выполнения. Например, в финальной задаче курса нужно будет реализовать на Haskell API для бронирования билетов в кино. Из недостатков, курс иногда слишком академичен — он создавался для студентов матмеха и местами это может усложнять понимание.</p>
+<p><strong>Книга "Изучай Haskell во имя добра" (<a href="https://www.ozon.ru/product/izuchay-haskell-vo-imya-dobra-8696277">русское издание</a>, <a href="http://learnyouahaskell.com/chapters">полностью бесплатная англоязычная версия</a>)</strong></p>
+<p>Самая известная книга о Haskell и функциональном программировании. Доступная, понятная, с классными иллюстрациями, бонусом — доступна онлайн совсем бесплатно, правда на английском. Покрывает чуть больше тем, чем курс на Stepic и чуть меньше, чем курс на Ulearn. </p>
+<p>Из плюсов, книга совсем не академичная, доступная и максимально понятная. Англоязычная версия достаточно актуальна и соответствует тому, как сегодня пишут код на Haskell. Из минусов — многие отмечают, что примерам в книге не хватает практичности, да и задачи в онлайн-курсах включают в себя автотесты.</p>
+<h3 id="_7">Монады<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong><a href="https://www.youtube.com/watch?v=IkXg_mjNgG4">Доклад Виталия Брагилевского "Монады — не приговор"</a></strong></p>
+<p>Максимально подробный и понятный доклад Виталия Брагилевского о том, что же такое монады, как они устроены и почему это важная конструкция. Хороший гайд для новичков, не знакомых с темой.</p>
+<p><strong><a href="https://habr.com/ru/post/183150/">Статья "Функторы, аппликативные функторы и монады в картинках"</a></strong></p>
+<p>Еще одна статья на ту же тему. Из плюсов — все очень просто, понятно и в картинках. Из недостатков — статья несколько дальше от практики, чем упомянутый выше доклад. Так или иначе, иллюстрации отлично помогают понять концепцию.</p>
+<p><strong><a href="https://fsharpforfunandprofit.com/series/map-and-bind-and-apply-oh-my/">Серия статей "Map and Bind and Apply, Oh my!" на сайте F# for Fun and Profit</a></strong></p>
+<p>Та же тема, но в гораздо более близком для F# разработчиков изложении. Полно, объемно, очень практично и легко перекладывается на практическую F# разработку.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../csharp/memory_model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: .NET Memory Model" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              .NET Memory Model
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.cefbb252.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f8ea78.min.js"></script>
+      
+    
+  </body>
+</html>
